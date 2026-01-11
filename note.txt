@@ -1,0 +1,182 @@
+	Halo, saya ingin mendaftar konseling karier. Berikut data saya:
+
+	Nama Lengkap: [Isi Nama]
+	Sesi Konseling: Online
+	Kategori Peserta: [Mahasiswa ITB / Alumni ITB / Mahasiswa Non-ITB / Alumni Non-ITB]
+	Hari & Waktu Konseling: [Jumat/Sabtu, Pukul 08.00 / 09.00 / 10.00 / 11.00 / 13.00 / 14.00]
+	No. HP (WhatsApp): [Isi Nomor]
+	Email : [email]
+
+============================================================================================
+/career-booking/
+├── index.html                # Halaman utama (landing + kalender + form booking)
+├── pages/                    # Halaman tambahan (opsional, jika bukan full SPA)
+│   ├── schedule.html          # Halaman khusus jadwal konseling
+│   └── about.html             # Profil layanan & psikolog
+├── css/
+│   ├── variables.css          # CSS variables (palette warna, spacing, font)
+│   ├── base.css               # Reset + base styling (typography, body, headings)
+│   ├── layout.css             # Grid, container, header, footer, section layout
+│   ├── components.css         # Styling komponen (card, calendar, form, button)
+│   ├── animations.css         # Animasi, hover, transition
+│   └── pages.css              # Styling khusus halaman (landing/schedule/about)
+├── js/
+│   ├── main.js                # Entry point: init app, load data, mount komponen
+│   ├── router.js              # Router sederhana (hash-based) jika SPA
+│   ├── constants.js           # Konstanta: palette, regex, WA template, API base URL
+│   ├── state.js               # State global: bulan aktif, jadwal, filter, slot terpilih
+│   ├── services/
+│   │   ├── sheetsService.js   # Query Google Spreadsheet API (GViz URL)
+│   │   └── timeService.js     # Util waktu: parse, format tanggal/jam, filter minggu/hari
+│   ├── utils/
+│   │   ├── dom.js             # Helper DOM: createEl, mount, event binding
+│   │   ├── format.js          # Format tanggal, jam, text
+│   │   └── validate.js        # Validasi form & slot (availability, email, phone)
+│   ├── components/
+│   │   ├── Calendar.js        # Kalender bulanan/mingguan/harian (render + events)
+│   │   ├── ScheduleLegend.js  # Legend status & filter psikolog/mode
+│   │   ├── BookingForm.js     # Form booking + WhatsApp link generator
+│   │   ├── Hero.js            # Banner ajakan konseling + CTA
+│   │   ├── PsychologistCard.js# Kartu profil Bu Lina & Bu Sito
+│   │   └── Footer.js          # Footer + kontak + branding
+│   └── pages/
+│       ├── LandingPage.js     # Komposisi Hero + highlight jadwal + CTA
+│       ├── SchedulePage.js    # Komposisi Calendar + Legend + Form
+│       └── AboutPage.js       # Konten informatif (alamat, kontak, profil)
+├── assets/
+│   ├── images/
+│   │   ├── hero.jpg           # Banner landing
+│   │   ├── lina.jpg           # Foto Bu Lina
+│   │   └── sito.jpg           # Foto Bu Sito
+│   └── icons/                 # Ikon SVG/PNG (calendar, clock, location)
+├── data/
+│   └── mock/                  # Mock JSON untuk dev offline tanpa API
+│       └── january.json
+├── README.md                  # Dokumentasi singkat project (setup, arsitektur, deploy)
+└── .editorconfig              # Konsistensi format (indentasi, charset)
+	
+============================================================================================
+# 📌 API Query Google Spreadsheet ITB Career Center
+# Spreadsheet ID: 11EWr8YJU2URg4H_xDpzVSGDeFFM9s5bDVxesJxg6V2A
+# Semua API di bawah ini sudah lengkap, tinggal dipakai di codingan.
+# Format output: JSON (lebih mudah dipakai di web).
+# Parameter {bulan} = nama sheet (Januari, Februari, Maret, dst).
+# Parameter {tanggal_jam} = slot spesifik (contoh: '05/01/2026 9:00:00').
+
+------------------------------------------------------------
+1. Ambil Semua Jadwal Bulanan
+------------------------------------------------------------
+# Tujuan: Menampilkan seluruh slot konseling per bulan (jadwal lengkap).
+https://docs.google.com/spreadsheets/d/11EWr8YJU2URg4H_xDpzVSGDeFFM9s5bDVxesJxg6V2A/gviz/tq?tq=SELECT%20A,B,C,F&headers=1&tqx=out:json&sheet={bulan}
+
+------------------------------------------------------------
+2. Ambil Slot Kosong (Belum Terpenuhi)
+------------------------------------------------------------
+# Tujuan: Validasi form booking agar hanya slot kosong bisa dipilih.
+https://docs.google.com/spreadsheets/d/11EWr8YJU2URg4H_xDpzVSGDeFFM9s5bDVxesJxg6V2A/gviz/tq?tq=SELECT%20A,B,C,F%20WHERE%20F!='Terpenuhi'&headers=1&tqx=out:json&sheet={bulan}
+
+------------------------------------------------------------
+3. Ambil Slot Terisi (Sudah Dibooking)
+------------------------------------------------------------
+# Tujuan: Menandai slot di kalender sebagai tidak tersedia.
+https://docs.google.com/spreadsheets/d/11EWr8YJU2URg4H_xDpzVSGDeFFM9s5bDVxesJxg6V2A/gviz/tq?tq=SELECT%20A,B,C,F%20WHERE%20F='Terpenuhi'&headers=1&tqx=out:json&sheet={bulan}
+
+------------------------------------------------------------
+4. Ambil Detail Slot Tertentu
+------------------------------------------------------------
+# Tujuan: Pre-fill form booking ketika peserta klik slot di kalender.
+# Ganti {tanggal_jam} sesuai slot yang dipilih.
+https://docs.google.com/spreadsheets/d/11EWr8YJU2URg4H_xDpzVSGDeFFM9s5bDVxesJxg6V2A/gviz/tq?tq=SELECT%20A,B,C,F%20WHERE%20A='{tanggal_jam}'&headers=1&tqx=out:json&sheet={bulan}
+
+------------------------------------------------------------
+5. Ambil Semua Data Mentah (Opsional)
+------------------------------------------------------------
+# Tujuan: Debugging atau backup, ambil semua kolom A–F.
+https://docs.google.com/spreadsheets/d/11EWr8YJU2URg4H_xDpzVSGDeFFM9s5bDVxesJxg6V2A/gviz/tq?tq=SELECT%20A,B,C,D,E,F&headers=1&tqx=out:json&sheet={bulan}
+	
+============================================================================================
+	📄 Software Requirement Specification (SRS)
+	Aplikasi Booking Konseling Karir – ITB Career Center
+
+1. Pendahuluan
+- Tujuan: Membuat aplikasi web untuk memudahkan peserta melakukan booking konseling karir dengan psikolog ITB Career Center.
+- Lingkup: Sistem hanya digunakan oleh peserta dan admin. Psikolog tidak perlu login.
+- Masalah saat ini: Proses booking dilakukan manual via WhatsApp, pencatatan di Google Spreadsheet.
+- Solusi: Web interaktif dengan integrasi Google Sheets API + WhatsApp link generator.
+
+2. Aktor Sistem
+- Peserta
+- Melihat jadwal konseling (kalender bulanan, mingguan, harian).
+- Mengisi form booking.
+- Mengirim request ke WhatsApp ITB Career Center.
+- Admin
+- Menerima request via WhatsApp.
+- Validasi data.
+- Update status di Google Spreadsheet.
+
+3. Fitur Utama
+3.1 Kalender Jadwal
+- Menampilkan jadwal konseling per bulan, minggu, hari.
+- Data diambil dari Google Spreadsheet (sheet per bulan).
+- Slot ditandai: Kosong (bisa dibooking) / Terisi (tidak bisa dibooking).
+3.2 Form Booking
+- Input:
+- Nama lengkap
+- Sesi konseling (Online/Offline)
+- Kategori peserta (Mahasiswa ITB, Alumni ITB, Mahasiswa Non-ITB, Alumni Non-ITB)
+- Pilih jadwal konseling (validasi slot kosong)
+- Nomor HP
+- Email
+- Output: Generate pesan otomatis ke WhatsApp ITB Career Center.
+3.3 Validasi
+- Slot yang sudah terisi tidak bisa dipilih.
+- Form tidak bisa submit jika ada data kosong.
+3.4 Integrasi WhatsApp
+- Submit form → generate pesan otomatis sesuai format:
+Halo, saya ingin mendaftar konseling karier. Berikut data saya:
+Nama Lengkap: [Nama]
+Sesi Konseling: [Online/Offline]
+Kategori Peserta: [Kategori]
+Hari & Waktu Konseling: [Tanggal & Jam]
+No. HP (WhatsApp): [Nomor]
+Email: [Email]
+
+
+3.5 Konten Informasi
+- Foto psikolog.
+- Ajakan konseling (CTA).
+- Informasi lokasi offline (ITB Career Center, GKU Timur, Lantai Dasar ITB Ganesha).
+- Kontak: Instagram, Website, WhatsApp.
+
+4. Data & Integrasi
+- Google Spreadsheet:
+- Kolom A: Tanggal & Waktu
+- Kolom B: Psikolog
+- Kolom C: Mode (Online/Offline)
+- Kolom F: Status (Terpenuhi/Belum dimulai)
+- Nama Sheet: Januari, Februari, dst.
+- API: Google Sheets API untuk query data sesuai bulan.
+
+5. Tampilan & UI/UX
+- Modern, menarik, responsif, animatif.
+- Warna utama:
+- #F3F3E0 (light background)
+- #27548A (primary blue)
+- #183B4E (dark navy)
+- #DDA853 (accent gold)
+- Kalender interaktif dengan highlight slot kosong/terisi.
+- Efek hover, transisi smooth, CTA jelas.
+
+6. Requirement Non-Fungsional
+- Performance: Jadwal harus tampil cepat (real-time query ke Google Sheets).
+- Security: Validasi input form, sanitasi data.
+- Scalability: Struktur siap untuk penambahan psikolog/jadwal di masa depan.
+- Maintainability: Integrasi API modular, mudah diupdate.
+- Usability: Tampilan sederhana, mudah dipahami peserta umum.
+
+7. Flow Sistem
+- Peserta buka web → lihat kalender.
+- Peserta isi form booking → validasi slot kosong.
+- Submit → generate pesan WhatsApp otomatis.
+- Admin cek pesan → validasi → update status di Google Spreadsheet.
+- Jadwal di web otomatis ter-update.

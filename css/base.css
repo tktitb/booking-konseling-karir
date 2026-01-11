@@ -1,0 +1,47 @@
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  /* Premium radial gradient sesuai brief (navy–gold–deep blue) */
+  /* background:
+    radial-gradient(circle at top, var(--blue-persib) 0, var(--navy) 40%, #0b1a27 100%); */
+background:
+  linear-gradient(
+    135deg,
+    var(--gold-old) 0%,
+    var(--blue-persib) 42%,
+    #0b1a27 90%
+  );
+
+
+
+  color: var(--text);
+}
+h1,h2,h3 { margin: 0 0 var(--s3); }
+p { margin: 0 0 var(--s3); }
+small { color: var(--muted); }
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { display: block; max-width: 100%; }
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--s3);
+}
+
+/* Jarak ideal main dari header/footer */
+.main-spacing {
+  padding-top: var(--s5);
+  padding-bottom: var(--s6);
+}
+
+/* Mobile typography and spacing refinements */
+@media (max-width: 480px) {
+  .main-spacing { padding-top: var(--s4); padding-bottom: var(--s5); }
+  h1 { font-size: 18px; }
+  h2 { font-size: 16px; }
+  h3 { font-size: 14px; }
+}

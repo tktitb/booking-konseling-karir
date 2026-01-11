@@ -1,0 +1,2 @@
+.page { display: grid; gap: var(--s3); }
+.hero--small { padding: var(--s4); }

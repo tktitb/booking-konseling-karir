@@ -1,0 +1,50 @@
+keknya kamu lupa beberapa rules, saya sampaikan lagi:
+
+ITB Career Center memberikan layanan Konseling Karier bagi mahasiswa dan alumni ITB maupun non ITB. Lewat Konseling Karier, teman karier akan dibantu merencanakan, memilih,mempersiapkan karier,serta mendapatkan tips untuk memasuki dunia kerja,
+
+100% Gratis
+
+nah itu bisa masuk CTA atau about juga boleh kamu ambahin juga biar lebih menanarik 
+
+psikolog ada 2 = 
+bu lina = Lina Tarlina, S.Psi
+bu sito = Sito Asih Pratiwi, S.Psi
+
+jadwal konseling :
+
+bu lina 
+setiap minggunya hanya tersedia  hari senin sesi offline  jam 09.00, 10.00, 11.00, 13.00, 14.00, 15.00 dan hari jumat sesi online jam 08.00, 09.00, 10.00, 11.00, 13.00, 14.00 
+
+bu sito
+setiap minggunya hanya tersedia  hari senin sesi offline jam 09.00, 10.00, 11.00, 13.00, 14.00, 15.00 dan hari Sabtu sesi online jam 08.00, 09.00, 10.00, 11.00, 13.00, 14.00
+
+ini contoh data dari API NYA :
+https://docs.google.com/spreadsheets/d/11EWr8YJU2URg4H_xDpzVSGDeFFM9s5bDVxesJxg6V2A/gviz/tq?tq=SELECT%20A,B,C,D,E,F&headers=1&tqx=out:json&sheet={bulan}
+*O_o*/
+google.visualization.Query.setResponse({"version":"0.6","reqId":"0","status":"ok","sig":"1989075945","table":{"cols":[{"id":"A","label":"Tanggal dan Waktu","type":"datetime","pattern":"dd/MM/yyyy H:mm:ss"},{"id":"B","label":"Psikolog","type":"string"},{"id":"C","label":"Sesi","type":"string"},{"id":"D","label":"Kategori","type":"string"},{"id":"E","label":"Peserta","type":"string"},{"id":"F","label":"Status","type":"string"}],"rows":[{"c":[{"v":"Date(2026,0,5,9,0,0)","f":"05/01/2026 9:00:00"},{"v":"Bu Sito"},{"v":"Offline"},{"v":"Alumni Non ITB"},{"v":"Silmi Syadidah"},{"v":"Terpenuhi"}]},{"c":[{"v":"Date(2026,0,5,10,0,0)","f":"05/01/2026 10:00:00"},{"v":"Bu Sito"},{"v":"Offline"},{"v":"Alumni ITB"},{"v":"Muhammad Nur Ihsan Effendi"},{"v":"Terpenuhi"}]},{"c":[{"v":"Date(2026,0,5,11,0,0)","f":"05/01/2026 11:00:00"},{"v":"Bu Sito"},{"v":"Offline"},{"v":"Alumni ITB"},{"v":"Nisa Nurul Jannah"},{"v":"Belum dimulai"}]},{"c":[{"v":"Date(2026,0,5,13,0,0)","f":"05/01/2026 13:00:00"},{"v":"Bu Sito"},{"v":"Offline"},{"v":"Alumni ITB"},{"v":"Ahmad Mukhlasul  Amri"},{"v":"Terpenuhi"}]},{"c":[{"v":"Date(2026,0,5,14,0,0)","f":"05/01/2026 14:00:00"},{"v":"Bu Sito"},{"v":"Offline"},{"v":"Mahasiswa ITB"},{"v":"Anushka Gupta"},{"v":"Terpenuhi"}]},{"c":[{"v":"Date(2026,0,5,15,0,0)","f":"05/01/2026 15:00:00"},{"v":"Bu Sito"},{"v":"Offline"},{"v":"Alumni ITB"},{"v":"Achmad Nabhan Yaman"},{"v":"Terpenuhi"}]},{"c":[{"v":"Date(2026,0,10,8,0,0)","f":"10/01/2026 8:00:00"},{"v":"Bu Sito"},{"v":"Online"},{"v":"Alumni ITB"},{"v":"Karina Dara Puspita"},{"v":"Terpenuhi"}]},{"c":[{"v":"Date(2026,0,10,9,0,0)","f":"10/01/2026 9:00:00"},{"v":"Bu Sito"},{"v":"Online"},{"v":"Alumni ITB"},{"v":"Farrel Naufal Rahman"},{"v":"Terpenuhi"}]},{"c":[{"v":"Date(2026,0,10,10,0,0)","f":"10/01/2026 10:00:00"},{"v":"Bu Sito"},{"v":"Online"},{"v":"Alumni ITB"},{"v":"Muhammad Alwi Husaini"},{"v":"Belum dimulai"}]},{"c":[{"v":"Date(2026,0,10,11,0,0)","f":"10/01/2026 11:00:00"},{"v":"Bu Sito"},{"v":"Online"},{"v":"Alumni ITB"},{"v":"Aprilia Dianpermatasari"},{"v":"Terpenuhi"}]},{"c":[{"v":"Date(2026,0,10,13,0,0)","f":"10/01/2026 13:00:00"},{"v":"Bu Sito"},{"v":"Online"},{"v":"Alumni ITB"},{"v":"Syaffa Arini Kusuma"},{"v":"Terpenuhi"}]},{"c":[{"v":"Date(2026,0,10,14,0,0)","f":"10/01/2026 14:00:00"},{"v":"Bu Sito"},{"v":"Online"},{"v":"Alumni ITB"},{"v":"Muhammad Hanivan Titunanda "},{"v":"Belum dimulai"}]},{"c":[{"v":"Date(2026,0,12,9,0,0)","f":"12/01/2026 9:00:00"},{"v":"Bu Lina"},{"v":"Offline"},{"v":"Mahasiswa ITB"},{"v":"Nur Dawam Abdan Syakuro"},{"v":"Belum dimulai"}]},{"c":[{"v":"Date(2026,0,12,10,0,0)","f":"12/01/2026 10:00:00"},{"v":"Bu Lina"},{"v":"Offline"},{"v":"Alumni ITB"},{"v":"Nayla Nafila Nasution"},{"v":"Belum dimulai"}]},{"c":[{"v":"Date(2026,0,12,11,0,0)","f":"12/01/2026 11:00:00"},{"v":"Bu Lina"},{"v":"Offline"},{"v":"Mahasiswa ITB"},{"v":"Ayu Surya Werdani"},{"v":"Belum dimulai"}]},{"c":[{"v":"Date(2026,0,12,13,0,0)","f":"12/01/2026 13:00:00"},{"v":"Bu Lina"},{"v":"Offline"},{"v":"Mahasiswa ITB"},{"v":"Vivia Tansy Hasan"},{"v":"Belum dimulai"}]},{"c":[{"v":"Date(2026,0,12,14,0,0)","f":"12/01/2026 14:00:00"},{"v":"Bu Lina"},{"v":"Offline"},{"v":"Mahasiswa ITB"},{"v":"Angelina Fajri Intan Sari"},{"v":"Belum dimulai"}]},{"c":[{"v":"Date(2026,0,12,15,0,0)","f":"12/01/2026 15:00:00"},{"v":"Bu Lina"},{"v":"Offline"},{"v":"Alumni ITB"},{"v":"Achmad Nabhan Yaman"},{"v":"Belum dimulai"}]},{"c":[{"v":"Date(2026,0,15,8,0,0)","f":"15/01/2026 8:00:00"},{"v":"Bu Lina"},{"v":"Online"},{"v":"Alumni ITB"},{"v":"Muhammad Izzudin Shobar"},{"v":"Belum dimulai"}]},{"c":[{"v":"Date(2026,0,15,9,0,0)","f":"15/01/2026 9:00:00"},{"v":"Bu Lina"},{"v":"Online"},{"v":"Alumni Non ITB"},{"v":"Annisa Puspo"},{"v":"Belum dimulai"}]},{"c":[{"v":"Date(2026,0,15,10,0,0)","f":"15/01/2026 10:00:00"},{"v":"Bu Lina"},{"v":"Online"},{"v":"Alumni ITB"},{"v":"Asri Tamira Putri"},{"v":"Belum dimulai"}]},{"c":[{"v":"Date(2026,0,15,11,0,0)","f":"15/01/2026 11:00:00"},{"v":"Bu Lina"},{"v":"Online"},{"v":"Alumni Non ITB"},{"v":"Laylatul Inaya "},{"v":"Belum dimulai"}]},{"c":[{"v":"Date(2026,0,15,13,0,0)","f":"15/01/2026 13:00:00"},{"v":"Bu Lina"},{"v":"Online"},{"v":"Alumni ITB"},{"v":"Izzatul Husnayaini"},{"v":"Belum dimulai"}]},{"c":[{"v":"Date(2026,0,15,14,0,0)","f":"15/01/2026 14:00:00"},{"v":"Bu Lina"},{"v":"Online"},{"v":"Alumni ITB"},{"v":"Muhammad Sepri Yoga"},{"v":"Belum dimulai"}]},{"c":[{"v":"Date(2026,0,19,9,0,0)","f":"19/01/2026 9:00:00"},{"v":"Bu Sito"},{"v":"Offline"},{"v":"Alumni ITB"},{"v":"Muhamad Novan Agandra Rois"},{"v":"Belum dimulai"}]},{"c":[{"v":"Date(2026,0,19,10,0,0)","f":"19/01/2026 10:00:00"},{"v":"Bu Sito"},{"v":"Offline"},{"v":"Alumni ITB"},{"v":"Muhammad Nur Ihsan Effendi"},{"v":"Belum dimulai"}]},{"c":[{"v":"Date(2026,0,19,11,0,0)","f":"19/01/2026 11:00:00"},{"v":"Bu Sito"},{"v":"Offline"},{"v":"Mahasiswa ITB"},{"v":"Qonita Fadiyah A.P"},{"v":"Belum dimulai"}]},
+
+chat wa yg tergenerate kaya ini 
+Halo, saya ingin mendaftar konseling karier. Berikut data saya:
+
+	Nama Lengkap: [Isi Nama]
+	Sesi Konseling: Online
+	Kategori Peserta: [Mahasiswa ITB / Alumni ITB / Mahasiswa Non-ITB / Alumni Non-ITB]
+	Hari & Waktu Konseling: [Jumat/Sabtu, Pukul 08.00 / 09.00 / 10.00 / 11.00 / 13.00 / 14.00]
+	No. HP (WhatsApp): [Isi Nomor]
+	Email : [email
+
+
+oleh karena itu ada beberapa yg harus diperbaiki diantaranya :
+⦁	Jarak main content dengan header dan footer terlalu nempel harusnya ada Jarak yg ideal
+⦁	tampilan mobilde berlum rapih coba rapihkan, saat ini malah jadikepinngir semua arusnya tetep proporsioanl
+⦁	saya ingin langsung aja tampilkan jadwal sesuai data jadwal bukan berdasarkan psikolog,
+jadi di form nya inputnya, nama lengkap, sesi konseling otomatis kan jadwalny pakem, kategori dropdown,hari n wakru konseling otomatis, no hp, dan email, dan input psikolog mau bu lina atau bu sito sesuai jadwal terseida ya mereka, kalo jadwalnya ma tersida salah satu ya tomatis, kalo jadwal yg terseida dua duanya maka pilih
+⦁	jadwal dikatakan masih tersedia jika kolom E atau pesertanya masih kosong
+⦁	meskipun tanya terutlis bu lina dan bu sito tapi semua yg tampil di aplikasi harus nama lengkap dan gelar
+⦁	pada card jadwal setiap komponennya harus jelas terlihat cantik menarik responsive
+⦁	defaultnya semua jadwal tampil mau yg terseida atau yg tidak, kalo yg tudah ga tersedia tombol bookingnya ga muncul
+⦁	warna websitenya juga jangan cuma putih harus variasi kasih gradiasi modern, efek efek modern seuai warna yg tadi di brief
+⦁	pakai api nya satu aja itu yg lengkap, biar datanya lengkap 
+
+
+saya ingin ganti seluruh kodingan nya konsepnya harus sesaui yg ini coba kamu konfirmasi dulu pastika kamu ngerti, terus abis itu koding lagi tulis semua code website yg baru semuanya filenya secara lengkap profesionl hasil yg bagus, saya bos tinggal copas
