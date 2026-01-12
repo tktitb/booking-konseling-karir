@@ -6,6 +6,8 @@
 	Hari & Waktu Konseling: [Jumat/Sabtu, Pukul 08.00 / 09.00 / 10.00 / 11.00 / 13.00 / 14.00]
 	No. HP (WhatsApp): [Isi Nomor]
 	Email : [email]
+	
+	
 
 ============================================================================================
 /career-booking/
@@ -73,26 +75,30 @@ https://docs.google.com/spreadsheets/d/11EWr8YJU2URg4H_xDpzVSGDeFFM9s5bDVxesJxg6
 2. Ambil Slot Kosong (Belum Terpenuhi)
 ------------------------------------------------------------
 # Tujuan: Validasi form booking agar hanya slot kosong bisa dipilih.
-https://docs.google.com/spreadsheets/d/11EWr8YJU2URg4H_xDpzVSGDeFFM9s5bDVxesJxg6V2A/gviz/tq?tq=SELECT%20A,B,C,F%20WHERE%20F!='Terpenuhi'&headers=1&tqx=out:json&sheet={bulan}
+https://docs.google.com/spreadsheets/d/11EWr8YJU2URg4H_xDpzVSGDeFFM9s5bDVxesJxg6V2A/gviz/tq?tq=SELECT%20A,B,C,D,E,F%20WHERE%20F!='Terpenuhi'&headers=1&tqx=out:json&sheet={bulan}
 
 ------------------------------------------------------------
 3. Ambil Slot Terisi (Sudah Dibooking)
 ------------------------------------------------------------
 # Tujuan: Menandai slot di kalender sebagai tidak tersedia.
-https://docs.google.com/spreadsheets/d/11EWr8YJU2URg4H_xDpzVSGDeFFM9s5bDVxesJxg6V2A/gviz/tq?tq=SELECT%20A,B,C,F%20WHERE%20F='Terpenuhi'&headers=1&tqx=out:json&sheet={bulan}
+https://docs.google.com/spreadsheets/d/11EWr8YJU2URg4H_xDpzVSGDeFFM9s5bDVxesJxg6V2A/gviz/tq?tq=SELECT%20A,B,C,D,E,F%20WHERE%20F='Terpenuhi'&headers=1&tqx=out:json&sheet={bulan}
 
 ------------------------------------------------------------
 4. Ambil Detail Slot Tertentu
 ------------------------------------------------------------
 # Tujuan: Pre-fill form booking ketika peserta klik slot di kalender.
 # Ganti {tanggal_jam} sesuai slot yang dipilih.
-https://docs.google.com/spreadsheets/d/11EWr8YJU2URg4H_xDpzVSGDeFFM9s5bDVxesJxg6V2A/gviz/tq?tq=SELECT%20A,B,C,F%20WHERE%20A='{tanggal_jam}'&headers=1&tqx=out:json&sheet={bulan}
+https://docs.google.com/spreadsheets/d/11EWr8YJU2URg4H_xDpzVSGDeFFM9s5bDVxesJxg6V2A/gviz/tq?tq=SELECT%20A,B,C,D,E,F%20WHERE%20A='{tanggal_jam}'&headers=1&tqx=out:json&sheet={bulan}
 
 ------------------------------------------------------------
 5. Ambil Semua Data Mentah (Opsional)
 ------------------------------------------------------------
 # Tujuan: Debugging atau backup, ambil semua kolom A–F.
 https://docs.google.com/spreadsheets/d/11EWr8YJU2URg4H_xDpzVSGDeFFM9s5bDVxesJxg6V2A/gviz/tq?tq=SELECT%20A,B,C,D,E,F&headers=1&tqx=out:json&sheet={bulan}
+
+6. API Feedback
+https://docs.google.com/spreadsheets/d/11EWr8YJU2URg4H_xDpzVSGDeFFM9s5bDVxesJxg6V2A/gviz/tq?tq=SELECT%20A,B,C,F&headers=1&tqx=out:json&sheet=Feedback
+google.visualization.Query.setResponse({"version":"0.6","reqId":"0","status":"ok","sig":"187915957","table":{"cols":[{"id":"A","label":"Nama","type":"string"},{"id":"B","label":"Feedback","type":"string"},{"id":"C","label":"Kategori","type":"string"},{"id":"F","label":"","type":"string"}],"rows":[{"c":[{"v":"Anushka Gupta"},{"v":"\u201CSemakin percaya diri, dapat tips masuk dunia kerja yang konkret.\u201D"},{"v":"Mahasiswa ITB"},{"v":null}]},{"c":[{"v":"Muhammad Hanivan Titunanda "},{"v":"\u201CPsikolognya hangat dan profesional. Worth it!\u201D"},{"v":"Alumni ITB"},{"v":null}]},{"c":[{"v":"Silmi Syadidah"},{"v":"\u201CSesi konselingnya membantu saya memetakan langkah yang realistis.\u201D"},{"v":"Alumni Non\u2011ITB"},{"v":null}]},{"c":[{"v":"Anushka Gupta"},{"v":"\u201CSemakin percaya diri, dapat tips masuk dunia kerja yang konkret.\u201D"},{"v":"Mahasiswa ITB"},{"v":null}]},{"c":[{"v":"Muhammad Hanivan Titunanda "},{"v":"\u201CPsikolognya hangat dan profesional. Worth it!\u201D"},{"v":"Alumni ITB"},{"v":null}]},{"c":[{"v":"Silmi Syadidah"},{"v":"\u201CSesi konselingnya membantu saya memetakan langkah yang realistis.\u201D"},{"v":"Alumni Non\u2011ITB"},{"v":null}]}],"parsedNumHeaders":0}});
 	
 ============================================================================================
 	📄 Software Requirement Specification (SRS)

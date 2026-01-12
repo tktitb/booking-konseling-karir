@@ -13,17 +13,17 @@ export function SchedulePage() {
   const controls = el("section", { class: "card section section--brand" }, [
     // el("h3", { class: "card__title" }, "Kontrol Jadwal"),
     el("div", { class: "controls-bar" }, [
-    //   el("div", { class: "controls-bar__group" }, [
-    //     el("label", { class: "form__label", for: "bulanSel" }, "Bulan"),
-    //     (() => {
-    //       const sel = el("select", { id: "bulanSel", class: "select" },
-    //         MONTHS.map(m => el("option", { value: m }, m))
-    //       );
-    //       sel.value = state.month;
-    //       sel.addEventListener("change", (e) => setState({ month: e.target.value }));
-    //       return sel;
-    //     })()
-    //   ]),
+      el("div", { class: "controls-bar__group" }, [
+        el("label", { class: "form__label", for: "bulanSel" }, "Bulan"),
+        (() => {
+          const sel = el("select", { id: "bulanSel", class: "select" },
+            MONTHS.map(m => el("option", { value: m }, m))
+          );
+          sel.value = state.month;
+          sel.addEventListener("change", (e) => setState({ month: e.target.value }));
+          return sel;
+        })()
+      ]),
       el("div", { class: "controls-bar__group" }, [
         el("label", { class: "form__search", for: "filterSel" }, "Filter"),
         (() => {
