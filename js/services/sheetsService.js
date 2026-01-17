@@ -12,10 +12,26 @@ function buildUrl({ sheetName }) {
 }
 
 export async function getMonthlySchedule(sheetName) {
-  const url = buildUrl({ sheetName });
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`HTTP ${res.status} saat fetch GViz`);
-  const text = await res.text();
-  const json = parseGvizJSON(text);
-  return tableToRowsObjects(json);
+  try {
+    const url = buildUrl({ sheetName });
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status} saat fetch GViz`);
+
+    const text = await res.text();
+
+    // kalau GViz balikin isi sheet pertama, kita cek meta sheetName
+    const json = parseGvizJSON(text);
+
+    // cek apakah sheetName di response sama dengan yang diminta
+    const actualSheet = json.table?.cols?.[0]?.label || "";
+    if (!text.includes(sheetName) && actualSheet.toLowerCase().includes("januari")) {
+      console.warn(`Sheet "${sheetName}" tidak ditemukan, fallback ke Januari → kita kosongkan`);
+      return [];
+    }
+
+    return tableToRowsObjects(json);
+  } catch (err) {
+    console.error("Error load schedule:", err);
+    return [];
+  }
 }

@@ -38,5 +38,57 @@
 .footer__inner { display: flex; align-items: center; justify-content: space-between; }
 .footer__left { display: flex; align-items: center; gap: var(--s2); }
 .footer__brand { color: var(--bg); font-weight: 600; }
+.footer-info {
+  background: linear-gradient(135deg, var(--surface-2), var(--surface-3));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+  padding: var(--s3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer-info:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2);
+}
+
+/* grid dua kolom untuk layar besar */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* item */
+.footer-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.footer-item i {
+  color: var(--blue);
+  font-size: 18px;
+}
+
+.footer-item a {
+  color: var(--blue);
+  font-weight: 600;
+  text-decoration: none;
+}
+.footer-item a:hover {
+  text-decoration: underline;
+}
+
+.footer-item iframe {
+  border-radius: 12px;
+  max-width: 100%;
+}
+
+.footer-quote { margin-top: 16px; font-size: 13px; font-style: italic; color: var(--navy); display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; } .footer-quote i { color: var(--navy); }
+
+
 
 

@@ -14,25 +14,26 @@ export function AboutPage() {
     el("p", {}, "Di balik setiap sesi konseling, ada standar profesional yang selalu kami pegang. Psikolog ITB Career Center tidak hanya empatik dan profesional, tetapi juga membawa karakter yang membuat pengalaman konseling terasa bermakna:"),
     el("ul", { style: "margin-left:20px;display:flex;flex-direction:column;gap:8px;" }, [
       el("li", {}, [
-        el("strong", {}, "Empatik — "),
-        "Kami berusaha benar-benar memahami perasaan, nilai, dan kebingungan klien tanpa menghakimi. Empati menjadi fondasi hubungan yang hangat."
+        el("strong", {}, "Empatik"),
+        el("p", {}, "Kami berusaha benar-benar memahami perasaan, nilai, dan kebingungan klien tanpa menghakimi. Empati menjadi fondasi hubungan yang hangat.")
       ]),
       el("li", {}, [
-        el("strong", {}, "Profesional — "),
-        "Menjaga etika, kerahasiaan, dan bekerja sesuai standar keilmuan psikologi, sehingga peserta merasa aman."
+        el("strong", {}, "Profesional"),
+        el("p", {}, "Menjaga etika, kerahasiaan, dan bekerja sesuai standar keilmuan psikologi, sehingga peserta merasa aman.")
       ]),
       el("li", {}, [
-        el("strong", {}, "Objektif dan Netral — "),
-        "Kami tidak memaksakan opini pribadi. Keputusan tetap berada pada klien, sementara konselor berperan sebagai fasilitator."
+        el("strong", {}, "Objektif dan Netral"),
+        el("p", {}, "Kami tidak memaksakan opini pribadi. Keputusan tetap berada pada klien, sementara konselor berperan sebagai fasilitator.")
       ]),
       el("li", {}, [
-        el("strong", {}, "Komunikatif dan Asesif — "),
-        "Lewat wawancara dan asesmen minat-bakat, kami menggali informasi dengan tepat dan menyampaikan umpan balik dengan bahasa yang jelas dan membangun."
+        el("strong", {}, "Komunikatif dan Asesif"),
+        el("p", {}, "Lewat wawancara dan asesmen minat-bakat, kami menggali informasi dengan tepat dan menyampaikan umpan balik dengan bahasa yang jelas dan membangun.")
       ]),
       el("li", {}, [
-        el("strong", {}, "Berorientasi pada Pengembangan Klien — "),
-        "Fokus kami bukan sekadar memberi saran instan, melainkan membantu klien mandiri dalam mengambil keputusan karier jangka panjang."
+        el("strong", {}, "Berorientasi pada Pengembangan Klien"),
+        el("p", {}, "Fokus kami bukan sekadar memberi saran instan, melainkan membantu klien mandiri dalam mengambil keputusan karier jangka panjang.")
       ])
+
     ])
   ]);
 
@@ -40,14 +41,14 @@ export function AboutPage() {
     el("h3", {}, "Psikolog Kami"),
     el("div", { class: "grid-2" }, [
       PsychologistCard({
-        nameFull: "Lina Tarlina, S.Psi",
-        image: "./assets/images/lina.jpg",
-        bio: "Pendekatan sistematis dan suportif, fokus pada realisasi tujuan karier."
+        nameFull: "Lina Tarlina, S.Psi, Psikolog",
+        image: "./assets/images/lina.png",
+        bio: ""
       }),
       PsychologistCard({
-        nameFull: "Sito Asih Pratiwi, S.Psi",
-        image: "./assets/images/sito.jpg",
-        bio: "Membantu memetakan potensi, menyusun rencana, serta menavigasi transisi karier."
+        nameFull: "Sito Asih Pratiwi, S.Psi, Psikolog",
+        image: "./assets/images/sito.png",
+        bio: ""
       })
     ])
   ]);

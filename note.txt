@@ -8,6 +8,13 @@
 	Email : [email]
 	
 	
+⦁	jadwal yg tampil tidak semua
+⦁	tampilan jadwal harus lebih bagus
+
+- footer harusnya selalu paling bawah
+- tambahin faq
+	
+	
 
 ============================================================================================
 /career-booking/

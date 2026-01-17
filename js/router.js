@@ -13,3 +13,4 @@ export function getRouteName() {
 export function onRouteChange(cb) {
   window.addEventListener("hashchange", cb);
 }
+

@@ -3,11 +3,13 @@ import { getFeedback } from "../services/feedbackService.js";
 
 function card({ name, feedback, category }) {
   return el("div", { class: "testimonial-card" }, [
-    el("p", {}, feedback),
+    el("span", { class: "testimonial-card__quote" }, "❝"),
+    el("p", { class: "testimonial-card__text" }, feedback),
     el("div", { class: "testimonial-card__name" }, name),
     el("div", { class: "testimonial-card__role" }, category)
   ]);
 }
+
 
 function arrowIcon(direction) {
   const d = direction === "left"

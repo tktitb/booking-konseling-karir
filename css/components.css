@@ -62,14 +62,40 @@
   gap: var(--s3);
 }
 .testimonial-card {
-  background: #ffffff;
+  background: linear-gradient(135deg, var(--surface-2), var(--surface-3)); /* gradient biar ga polosan */
   border: 3px solid var(--border);
   border-radius: var(--radius);
   padding: var(--s3);
   box-shadow: var(--shadow-1);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.testimonial-card__name { font-weight: 700; color: var(--navy); }
-.testimonial-card__role { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-2); /* glow tipis saat hover */
+}
+.testimonial-card__name {
+  font-weight: 700;
+  color: var(--navy);
+  filter: blur(3px);       /* privasi nama */
+  user-select: none;       /* biar ga bisa di-copy */
+}
+.testimonial-card__role {
+  font-size: 13px;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+/* aksen quote icon */
+.testimonial-card::before {
+  content: "❝";
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 32px;
+  color: var(--gold);
+  opacity: 0.15;
+}
+
 
 
 
@@ -105,7 +131,7 @@
   box-shadow: 0 10px 18px rgba(39,84,138,0.18);
   transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
 }
-.button:hover { background: var(--gold-old); transform: translateY(-3px); box-shadow: 0 14px 22px rgba(39,84,138,0.22); }
+.button:hover { background: var(--blue-persib); transform: translateY(-3px); box-shadow: 0 14px 22px rgba(39,84,138,0.22); }
 .button--gold { border-color: var(--gold); background: var(--gold); color: var(--navy); }
 .button--ghost { background: var(--bg); color: var(--gold-old); border-color: var(--blue); }
 .button[disabled] { opacity: 0.6; cursor: not-allowed; }
@@ -148,6 +174,232 @@
 .slot-card__psychologist { color: var(--navy); font-weight: 600; }
 .slot-card__meta { display: flex; align-items: center; gap: 10px; color: var(--muted); margin: 8px 0; }
 .slot-card__actions { display: flex; gap: var(--s2); }
+
+.psychologist-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+/* ===== Tabs ===== */
+.schedule-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.schedule-tabs .tab {
+  padding: 8px 16px;
+  border: none;
+  background: var(--surface-2);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+.schedule-tabs .tab:hover {
+  background: var(--surface-3);
+  transform: translateY(-2px);
+}
+.schedule-tabs .tab.active {
+  background: var(--blue);
+  color: #fff;
+}
+
+/* ===== Grid dua kolom psikolog ===== */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* ===== Header psikolog ===== */
+.psychologist-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.psychologist-header img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 8px;
+  box-shadow: var(--shadow-1);
+  transition: transform 0.3s;
+}
+.psychologist-header img:hover {
+  transform: scale(1.05);
+}
+.psychologist-header h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* ===== Card jadwal ===== */
+.slot-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-1);
+  animation: fadeInUp 0.4s ease;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.slot-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2);
+}
+.slot-card__top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.slot-card__time {
+  font-weight: 600;
+  color: var(--navy);
+}
+.slot-card__meta {
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.slot-card__actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.faq-section {
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--surface-1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.faq-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--bg);
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.faq-item {
+  background: var(--surface-2);
+  border: 1px solid var(--surface-3);
+  border-radius: 8px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+
+.faq-item:hover {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s;
+}
+
+.faq-question:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.faq-question::after {
+  content: "➕";
+  font-size: 14px;
+  transition: transform 0.3s;
+}
+
+.faq-item.active .faq-question::after {
+  content: "➖";
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 16px 16px 16px;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  border-top: 1px solid var(--surface-3);
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .faq-title {
+    font-size: 20px;
+  }
+  .faq-question {
+    font-size: 15px;
+  }
+  .faq-answer {
+    font-size: 13px;
+  }
+}
+
+
+/* ===== Animasi ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .schedule-grid {
+    gap: 16px;
+  }
+  .psychologist-header img {
+    width: 90px;
+    height: 90px;
+  }
+}
+@media (max-width: 768px) {
+  .schedule-grid {
+    grid-template-columns: 1fr; /* jadi satu kolom */
+  }
+  .psychologist-header img {
+    width: 80px;
+    height: 80px;
+  }
+  .slot-card {
+    padding: 10px;
+  }
+  .schedule-tabs {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .schedule-tabs .tab {
+    flex: 1;
+    text-align: center;
+  }
+}
+
 
 /* Form & modal */
 .form { display: grid; gap: var(--s3); }

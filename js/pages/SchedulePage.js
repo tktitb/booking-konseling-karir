@@ -2,7 +2,7 @@ import { el, mount } from "../utils/dom.js";
 import { state, setState } from "../state.js";
 import { MONTHS } from "../constants.js";
 import { getMonthlySchedule } from "../services/sheetsService.js";
-import { Calendar } from "../components/Calendar.js";
+import { ScheduleView } from "../components/ScheduleView.js";
 import { ScheduleLegend } from "../components/ScheduleLegend.js";
 import { BookingModal, openModal, closeModal } from "../components/BookingModal.js";
 import { isSlotAvailable } from "../utils/validate.js";
@@ -45,6 +45,7 @@ export function SchedulePage() {
     ])
   ]);
 
+
   const legendRoot = el("div");
   const scheduleRoot = el("div");
 
@@ -64,27 +65,44 @@ export function SchedulePage() {
   }
 
   async function loadAndRender() {
-    try {
-      setState({ loading: true, error: null, selectedSlot: null });
-      const items = await getMonthlySchedule(state.month);
-      setState({ schedule: items, loading: false });
+  try {
+    setState({ loading: true, error: null, selectedSlot: null });
+    const items = await getMonthlySchedule(state.month);
 
-      const filtered =
-        state.filter === "available"
-          ? state.schedule.filter(i => isSlotAvailable(i.participant))
-          : state.schedule;
+    // langsung pakai hasil dari service
+    setState({ schedule: items, loading: false });
 
-      mount(scheduleRoot, Calendar({
-        items: filtered,
-        onBooking: openBooking
-      }));
-    } catch (err) {
-      setState({ loading: false, error: err.message || String(err) });
-      mount(scheduleRoot, el("p", {}, "Gagal memuat jadwal. Silakan coba lagi."));
-    }
+    const filtered =
+      state.filter === "available"
+        ? state.schedule.filter(i => isSlotAvailable(i.participant))
+        : state.schedule;
+
+    mount(scheduleRoot, ScheduleView({
+      items: filtered,
+      tab: state.tab || "all",
+      onBooking: openBooking
+    }));
+
+    scheduleRoot.querySelectorAll(".schedule-tabs .tab").forEach(btn => {
+      btn.addEventListener("click", () => {
+        setState({ tab: btn.getAttribute("data-tab") });
+        loadAndRender();
+      });
+    });
+  } catch (err) {
+    // kalau error → tampil kosong
+    setState({ loading: false, error: null });
+    mount(scheduleRoot, ScheduleView({
+      items: [], // kosong → otomatis muncul "Belum ada jadwal"
+      tab: state.tab || "all",
+      onBooking: openBooking
+    }));
   }
+}
 
-//   renderLegend();
+
+
+  // renderLegend(); // aktifkan jika ingin legend tampil
   loadAndRender();
 
   mount(wrapper, controls);

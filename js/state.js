@@ -6,7 +6,8 @@ export const state = {
   loading: false,
   error: null,
   selectedSlot: null,
-  filter: "all"
+  filter: "all",
+  tab: "all"
 };
 
 export function setState(patch) {

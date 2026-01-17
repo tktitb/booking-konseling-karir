@@ -28,11 +28,19 @@ export const WHATSAPP_TEMPLATE = ({
 
 /* Mapping psikolog ke nama lengkap + avatar */
 export const PSYCHOLOGISTS = [
-  { key: "Bu Lina", full: "Lina Tarlina, S.Psi", avatar: "./assets/images/lina.jpg" },
-  { key: "Bu Sito", full: "Sito Asih Pratiwi, S.Psi", avatar: "./assets/images/sito.jpg" },
+  { key: "Bu Lina", full: "Lina Tarlina, S.Psi, Psikolog", avatar: "assets/images/lina.png" },
+  { key: "Bu Sito", full: "Sito Asih Pratiwi, S.Psi, Psikolog", avatar: "assets/images/sito.png" },
 ];
 
 export function psychologistFullName(label) {
   const found = PSYCHOLOGISTS.find(p => (label || "").trim() === p.key);
   return found ? found.full : (label || "").trim();
 }
+
+export function psychologistAvatar(label) {
+  const found = PSYCHOLOGISTS.find(p => (label || "").trim() === p.key);
+  return found ? found.avatar : "./assets/images/default.jpg";
+}
+
+
+
