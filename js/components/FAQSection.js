@@ -15,8 +15,12 @@ export function FAQSection() {
       a: "Ya, jadwal dapat diubah maksimal H‑2 sebelum sesi berlangsung."
     },
     {
-      q: "Apakah layanan konseling karier ITB terbuka untuk umum?",
-      a: "Ya, layanan ini terbuka untuk mahasiswa maupun alumni non‑ITB, dengan syarat sudah terdaftar sebagai member ITB Career Center melalui karir.itb.ac.id."
+    q: "Apakah layanan konseling karier ITB terbuka untuk umum?",
+    a: el("span", {}, [
+        "Ya, layanan ini terbuka untuk mahasiswa dan alumni ITB maupun mahasiswa dan alumni non‑ITB, dengan syarat sudah terdaftar sebagai member ITB Career Center melalui ",
+        el("a", { href: "https://karir.itb.ac.id", target: "_blank", rel: "noopener noreferrer", class: "faq-link" }, "karir.itb.ac.id"),
+        "."
+    ])
     },
     {
       q: "Apakah konseling dilakukan secara online atau tatap muka?",
@@ -43,7 +47,7 @@ export function FAQSection() {
   });
 
   return el("section", { class: "faq-section card section section--light" }, [
-    el("h2", { class: "faq-title" }, "FAQ konseling Karier"),
+    el("h2", { class: "faq-title" }, "FAQ Konseling Karier"),
     ...faqItems
   ]);
 }

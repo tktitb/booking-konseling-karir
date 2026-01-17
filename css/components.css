@@ -75,7 +75,7 @@
   box-shadow: var(--shadow-2); /* glow tipis saat hover */
 }
 .testimonial-card__name {
-  font-weight: 700;
+  font-weight: 300;
   color: var(--navy);
   filter: blur(3px);       /* privasi nama */
   user-select: none;       /* biar ga bisa di-copy */
@@ -184,24 +184,35 @@
 .schedule-tabs {
   display: flex;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  justify-content: center;
+  flex-wrap: wrap; /* biar kalau layar kecil bisa turun */
 }
+
 .schedule-tabs .tab {
-  padding: 8px 16px;
-  border: none;
-  background: var(--surface-2);
-  border-radius: 6px;
+  padding: 10px 18px;
+  border: 1px solid var(--surface-3);
+  background: var(--glass-border); /* beda dari background utama */
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: 500;
-  transition: background 0.3s, color 0.3s, transform 0.2s;
+  font-weight: 750;
+  border-color: var(--navy);
+  color: var(--text);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.08);
+  transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
 }
+
 .schedule-tabs .tab:hover {
-  background: var(--surface-3);
+  background: var(--surface-2);
   transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
 }
+
 .schedule-tabs .tab.active {
   background: var(--blue);
   color: #fff;
+  border-color: var(--blue);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 /* ===== Grid dua kolom psikolog ===== */
@@ -345,60 +356,7 @@
   animation: fadeIn 0.3s ease;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 
-@media (max-width: 768px) {
-  .faq-title {
-    font-size: 20px;
-  }
-  .faq-question {
-    font-size: 15px;
-  }
-  .faq-answer {
-    font-size: 13px;
-  }
-}
-
-
-/* ===== Animasi ===== */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 992px) {
-  .schedule-grid {
-    gap: 16px;
-  }
-  .psychologist-header img {
-    width: 90px;
-    height: 90px;
-  }
-}
-@media (max-width: 768px) {
-  .schedule-grid {
-    grid-template-columns: 1fr; /* jadi satu kolom */
-  }
-  .psychologist-header img {
-    width: 80px;
-    height: 80px;
-  }
-  .slot-card {
-    padding: 10px;
-  }
-  .schedule-tabs {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .schedule-tabs .tab {
-    flex: 1;
-    text-align: center;
-  }
-}
 
 
 /* Form & modal */

@@ -46,7 +46,13 @@ export function FooterInfo() {
           el("a", { href: "mailto:career@itb.ac.id" }, "career@itb.ac.id")
         ]),
          el("p", { class: "footer-item" }, [
-        ]), el("p", { class: "footer-item" }, [
+            el("i", { class: "fa-brands fa-linkedin" }),
+            el("a", { 
+              href: "https://www.linkedin.com/company/itb-career-center/", 
+              target: "_blank", 
+              rel: "noopener noreferrer" 
+            }, "LinkedIn ITB Career Center")
+          ]), el("p", { class: "footer-item" }, [
         ]),
         // Ajakan / quotes
         el("p", { class: "footer-quote" }, [

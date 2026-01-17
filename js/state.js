@@ -6,8 +6,9 @@ export const state = {
   loading: false,
   error: null,
   selectedSlot: null,
-  filter: "all",
-  tab: "all"
+  filter: "all", tab: "all", // untuk Online/Offline 
+  dayTab: "all",
+  psychologist: "all"
 };
 
 export function setState(patch) {

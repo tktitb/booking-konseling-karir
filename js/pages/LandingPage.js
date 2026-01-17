@@ -24,13 +24,13 @@ export function LandingPage() {
     el("div", { class: "grid-2" }, [
       HighlightCard({
         icon: iconTarget(),
-        title: "Pendekatan Humanis & Terukur",
-        desc: "Tujuan karier jelas, rencana realistis, pendampingan empatik—agar kamu maju dengan percaya diri."
+        title: "Pendampingan Karier Sejak Dini",
+        desc: "Membantu mahasiswa dan alumni memahami arah karier, menyusun langkah awal, serta mendukung proses pengambilan keputusan karier."
       }),
       HighlightCard({
         icon: iconHandshake(),
-        title: "Terhubung ke Dunia Kerja",
-        desc: "Insight praktis, strategi lamaran, dan persiapan menghadapi proses rekrutmen yang relevan."
+        title: "Dukungan Kesiapan Kerja",
+        desc: "Peserta dapat memanfaatkan layanan review CV, pendampingan persiapan wawancara, serta pembahasan rencana dan tantangan karier masa depan secara terarah."
       })
     ])
   ]);

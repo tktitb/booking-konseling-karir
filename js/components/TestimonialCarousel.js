@@ -59,7 +59,7 @@ export function TestimonialCarousel() {
   let index = 0;
 
   function perPage() {
-    return window.innerWidth <= 640 ? 2 : 3;
+    return window.innerWidth <= 400 ? 2 : 3;
   }
 
   function render() {
