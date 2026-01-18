@@ -68,12 +68,12 @@ export function ScheduleView({ items, tab, dayTab, psychologist = "all", onBooki
             el("button", { class: `tab ${tab === "offline" ? "active" : ""}`, "data-tab": "offline" }, "Offline")
     ]),
     // Tabs Hari
-    el("div", { class: "schedule-tabs" }, [
-      el("button", { class: `tab ${dayTab === "all" ? "active" : ""}`, "data-day": "all" }, "Semua"),
-      el("button", { class: `tab ${dayTab === "Senin" ? "active" : ""}`, "data-day": "Senin" }, "Senin"),
-      el("button", { class: `tab ${dayTab === "Jumat" ? "active" : ""}`, "data-day": "Jumat" }, "Jumat"),
-      el("button", { class: `tab ${dayTab === "Sabtu" ? "active" : ""}`, "data-day": "Sabtu" }, "Sabtu")
-    ]),
+    // el("div", { class: "schedule-tabs" }, [
+    //   el("button", { class: `tab ${dayTab === "all" ? "active" : ""}`, "data-day": "all" }, "Semua"),
+    //   el("button", { class: `tab ${dayTab === "Senin" ? "active" : ""}`, "data-day": "Senin" }, "Senin"),
+    //   el("button", { class: `tab ${dayTab === "Jumat" ? "active" : ""}`, "data-day": "Jumat" }, "Jumat"),
+    //   el("button", { class: `tab ${dayTab === "Sabtu" ? "active" : ""}`, "data-day": "Sabtu" }, "Sabtu")
+    // ]),
     // Grid Psikolog
     el("div", { class: "schedule-grid" }, [
       column("Bu Lina", linaItems),
